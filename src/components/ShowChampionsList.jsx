@@ -1,4 +1,4 @@
-// import { useContext } from "react";
+import { useState } from "react";
 // import { ChampionsContext } from "./Contexts";
 import "../css/ShowChampionList.css";
 import { ShowChampionsPortraitList } from "./ShowChampionsPortraitList";
@@ -6,6 +6,7 @@ import { ShowChampionsPortraitList } from "./ShowChampionsPortraitList";
 export const ShowChampionsList = ({ allChampions, freeChampionsRotation }) => {
   // const { champions } = useContext(ChampionsContext);
   const championsList = Object.values(allChampions);
+  const [selectedChampion, setSelectedChampion] = useState(null);
 
   return (
     <div>

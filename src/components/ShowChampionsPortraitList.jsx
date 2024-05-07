@@ -9,7 +9,7 @@ export const ShowChampionsPortraitList = ({ champion }) => {
   // check to see how many capital letters a string has.
   // const showNumberOfCapitalLetters = (portraitName.match(/[A-Z]/g) || []).length;
 
-  const weirdCapitals = ["KaiSa", "LeBlanc", "VelKoz", "ChoGath", "KhaZix"];
+  const makeSingleCapital = ["KaiSa", "LeBlanc", "VelKoz", "ChoGath", "KhaZix"];
 
   if (portraitName === "Wukong") {
     setPortraitName("MonkeyKing");
@@ -20,19 +20,22 @@ export const ShowChampionsPortraitList = ({ champion }) => {
   } else if (portraitName === "RenataGlasc") {
     setPortraitName("Renata");
   } else if (
-    portraitName === weirdCapitals[0] ||
-    portraitName === weirdCapitals[1] ||
-    portraitName === weirdCapitals[2] ||
-    portraitName === weirdCapitals[3] ||
-    portraitName === weirdCapitals[4]
+    portraitName === makeSingleCapital[0] ||
+    portraitName === makeSingleCapital[1] ||
+    portraitName === makeSingleCapital[2] ||
+    portraitName === makeSingleCapital[3] ||
+    portraitName === makeSingleCapital[4]
   ) {
     setPortraitName(portraitName[0] + portraitName.slice(1).toLowerCase());
   }
 
   const portraitURL = `https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${portraitName}.png`;
+  const test = () => {
+    console.log(champion.name);
+  };
 
   return (
-    <div className="portrait">
+    <div className="portrait" onClick={() => test()}>
       <img src={portraitURL} />
     </div>
   );
