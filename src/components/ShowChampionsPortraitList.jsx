@@ -1,7 +1,7 @@
 import "../css/PortraitStyle.css";
 import { useState } from "react";
 
-export const ShowChampionsPortraitList = ({ champion }) => {
+export const ShowChampionsPortraitList = ({ champion, onClick }) => {
   const [portraitName, setPortraitName] = useState(
     champion.name.replace(" ", "").replace("'", "")
   );
@@ -35,7 +35,7 @@ export const ShowChampionsPortraitList = ({ champion }) => {
   };
 
   return (
-    <div className="portrait" onClick={() => test()}>
+    <div className="portrait" onClick={onClick}>
       <img src={portraitURL} />
     </div>
   );

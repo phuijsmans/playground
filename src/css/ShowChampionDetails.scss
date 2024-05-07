@@ -1,0 +1,17 @@
+.container-champion-details {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(48, 48, 48, 0.5);
+  .background {
+    background-color: white;
+    max-width: 50rem;
+    margin: 0 auto;
+    min-height: 30rem;
+    border-radius: 1em;
+  }
+  p {
+    color: rgb(158, 125, 65);
+  }
+}
