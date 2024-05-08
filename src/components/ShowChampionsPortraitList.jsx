@@ -5,7 +5,7 @@ export const ShowChampionsPortraitList = ({ champion, onClick }) => {
   const portraitURL = `https://ddragon.leagueoflegends.com/cdn/14.9.1/img/champion/${portraitName}.png`;
 
   const test = () => {
-    console.log(champion.name);
+    console.log(champion);
   };
 
   return (

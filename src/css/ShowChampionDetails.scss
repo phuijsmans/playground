@@ -7,11 +7,34 @@
   .background {
     background-color: white;
     max-width: 50rem;
-    margin: 0 auto;
+    max-height: 50rem;
+    margin: 2em auto;
     min-height: 30rem;
     border-radius: 1em;
+    overflow: hidden;
   }
-  p {
+  .champion-navigation {
+    background-color: grey;
+    display: flex;
+  }
+  .flex-box {
+    display: flex;
+    background-color: rgb(238, 127, 127);
+  }
+  .champion-name {
     color: rgb(158, 125, 65);
+  }
+  .flex-box-stats {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    .stats {
+      background-color: orange;
+      position: relative;
+      margin: 0.3em;
+      p {
+        font-size: 0.8rem;
+      }
+    }
   }
 }

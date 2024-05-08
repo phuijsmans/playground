@@ -1,6 +1,6 @@
 import "./App.css";
-import { useState, useEffect } from "react";
-// import { ChampionsContext } from "./components/Contexts";
+import { useState } from "react";
+import { Link, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ShowChampionsList } from "./components/ShowChampionsList";
 
 function App() {
@@ -11,69 +11,47 @@ function App() {
   const [allChampions, setAllChampions] = useState();
   const [freeChampionsRotation, setFreeChampionsRotation] = useState();
 
-  useEffect(() => {
-    const fetchAllChampions = async () => {
-      const response = await fetch(URL_ALL_CHAMPIONS).then((res) => res.json());
-      setAllChampions(response.data);
-    };
-    fetchAllChampions();
-  }, []);
+  const fetchAllChampions = async () => {
+    const response = await fetch(URL_ALL_CHAMPIONS).then((res) => res.json());
+    setAllChampions(response.data);
+  };
+  fetchAllChampions();
 
-  //get free rotation from Riot api (need to update api key everyday because it expires each day)
-  // useEffect(() => {
-  //   const fetchFreeChampionsRotation = async () => {
-  //     const response = await fetch(GET_CHAMPIONS).then((res) => res.json());
-  //     setFreeChampionsRotation(response.freeChampionIds);
-  //   };
-  //   fetchFreeChampionsRotation();
-  // }, []);
-
-  // const sendRequest = async (method, URL) => {
-  //   const options = {};
-  //   options.method = method;
-  //   await fetch(URL, options).then((res) => res.json());
-  //   // await fetch(URL, options);
-  // };
-
-  // console.log(sendRequest("GET", GET_CHAMPIONS));
-
-  // const sendRequest = async () => {
-  //   const response = await fetch(GET_CHAMPIONS)
-  //     .then((res) => res.json())
-  //     .then((rotations) => {
-  //       console.log(rotations.freeChampionIds);
-  //       return rotations.freeChampionIds;
-  //     });
-  //   // const res = await response.json();
-  //   // return response.freeChampionIds;
-  //   // return response;
-  // };
-
-  // console.log(sendRequest());
-
-  // fetchAllChampions();
-
-  // console.log(allChampions);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <div id="container">
+          {allChampions ? (
+            <ShowChampionsList
+              allChampions={allChampions}
+              freeChampionsRotation={freeChampionsRotation}
+            />
+          ) : (
+            <div>
+              <p>
+                Loading champion list <br /> Please wait
+              </p>
+            </div>
+          )}
+          <Link to="test">Test</Link>
+        </div>
+      ),
+    },
+    {
+      path: "test",
+      element: (
+        <div>
+          <p>Test</p>
+          <Link to="/">Back</Link>
+        </div>
+      ),
+    },
+  ]);
 
   return (
     <>
-      <div id="container">
-        {/* <ChampionsContext.Provider value={allChampions}> */}
-        {allChampions ? (
-          <ShowChampionsList
-            allChampions={allChampions}
-            freeChampionsRotation={freeChampionsRotation}
-          />
-        ) : (
-          <div>
-            <p>
-              Loading champion list <br /> Please wait
-            </p>
-          </div>
-        )}
-
-        {/* </ChampionsContext.Provider> */}
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }
