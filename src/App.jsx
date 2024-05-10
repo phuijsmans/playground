@@ -1,7 +1,7 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ShowChampionsList } from "./components/ShowChampionsList";
+import { ChampionsPage } from "./pages/ChampionsPage";
 
 function App() {
   const RIOT_API_KEY = "RGAPI-92b8c787-0ddf-440a-b6fc-31aa828b705d";
@@ -11,40 +11,43 @@ function App() {
   const [allChampions, setAllChampions] = useState();
   const [freeChampionsRotation, setFreeChampionsRotation] = useState();
 
-  const fetchAllChampions = async () => {
-    const response = await fetch(URL_ALL_CHAMPIONS).then((res) => res.json());
-    setAllChampions(response.data);
-  };
-  fetchAllChampions();
+  useEffect(() => {
+    const fetchAllChampions = async () => {
+      const response = await fetch(URL_ALL_CHAMPIONS).then((res) => res.json());
+      setAllChampions(response.data);
+    };
+    fetchAllChampions();
+  }, []);
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
-        <div id="container">
-          {allChampions ? (
-            <ShowChampionsList
-              allChampions={allChampions}
-              freeChampionsRotation={freeChampionsRotation}
-            />
-          ) : (
-            <div>
-              <p>
-                Loading champion list <br /> Please wait
-              </p>
-            </div>
-          )}
-          <Link to="test">Test</Link>
+        <>
+          <h1>Home page</h1>
+          <Link to="champions">to champions</Link>
+        </>
+      ),
+    },
+    {
+      path: "champions",
+      element: (
+        <div>
+          <Link to="/">Back</Link>
+
+          <ChampionsPage
+            allChampions={allChampions}
+            freeChampionsRotation={freeChampionsRotation}
+          />
         </div>
       ),
     },
     {
-      path: "test",
+      path: `champions/:id`,
       element: (
-        <div>
-          <p>Test</p>
-          <Link to="/">Back</Link>
-        </div>
+        <>
+          <h1>test</h1>
+        </>
       ),
     },
   ]);
