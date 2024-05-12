@@ -3,7 +3,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(48, 48, 48, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   .background {
     background-color: white;
     max-width: 50rem;
@@ -27,9 +27,9 @@
   .flex-box-stats {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     .stats {
-      background-color: orange;
+      // background-color: orange;
       position: relative;
       margin: 0.3em;
       p {

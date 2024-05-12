@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import { Link, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ChampionsPage } from "./pages/ChampionsPage";
+import { ChampionsDetailPage } from "./pages/ChampionsDetailPage";
 
 function App() {
   const RIOT_API_KEY = "RGAPI-92b8c787-0ddf-440a-b6fc-31aa828b705d";
@@ -46,7 +47,16 @@ function App() {
       path: `champions/:id`,
       element: (
         <>
-          <h1>test</h1>
+          {allChampions ? (
+            <>
+              <ChampionsDetailPage championsList={allChampions} />
+            </>
+          ) : (
+            <>
+              <p>not loaded?</p>
+            </>
+          )}
+          {/* <ChampionsDetailPage championsObjectList={allChampions} /> */}
         </>
       ),
     },
