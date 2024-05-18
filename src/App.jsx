@@ -1,4 +1,4 @@
-import "./scss/main.scss";
+import "./styles/scss/main.scss";
 import { useEffect, useState } from "react";
 import { Link, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ChampionsPage } from "./pages/ChampionsPage";
