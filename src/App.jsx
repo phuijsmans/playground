@@ -1,4 +1,4 @@
-import "./App.css";
+import "./scss/main.scss";
 import { useEffect, useState } from "react";
 import { Link, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ChampionsPage } from "./pages/ChampionsPage";
@@ -6,7 +6,7 @@ import { ChampionsDetailPage } from "./pages/ChampionsDetailPage";
 
 function App() {
   const RIOT_API_KEY = "RGAPI-92b8c787-0ddf-440a-b6fc-31aa828b705d";
-  const GET_CHAMPIONS = `https://euw1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=${RIOT_API_KEY}`;
+  // const GET_CHAMPIONS = `https://euw1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=${RIOT_API_KEY}`;
   const URL_ALL_CHAMPIONS =
     "https://ddragon.leagueoflegends.com/cdn/12.6.1/data/en_GB/champion.json";
   const [allChampions, setAllChampions] = useState();

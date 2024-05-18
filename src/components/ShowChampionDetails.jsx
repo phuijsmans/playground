@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import "../css/ShowChampionDetails.scss";
-import "../css/styling/champion-details-elements.scss";
 
 export const ShowChampionDetails = ({ champion }) => {
   const championName = champion.name;
@@ -9,25 +7,43 @@ export const ShowChampionDetails = ({ champion }) => {
 
   return (
     <>
-      <div className="container-champion-details">
-        <Link to={"../champions"}>Back</Link>
-
-        <h1 className="champion-name">{championName}</h1>
-        <div className="champion-navigation">
-          <div className="champion-nav-button"></div>
+      <div id="container-champion-details">
+        <Link id="link-back" to={"../champions"}>
+          Back
+        </Link>
+        <div id="background">
+          <img id="champion-splash-art-blurred" src={championSplashArt} />
+          <div className="gradient"></div>
         </div>
-        <div className="flex-box">
-          <img src={championSplashArt} />
-          <div className="flex-box-stats">
-            {/* {Object.keys(champion.stats).map((name, value) => {
-              return (
-                <div key={name} className="stats">
-                  <p>
-                    {name}: {Object.values(champion.stats)[value]}
-                  </p>
-                </div>
-              );
-            })} */}
+        <div id="wrapper-content">
+          <div id="champion-splash-art">
+            <img src={championSplashArt} />{" "}
+          </div>
+          <div id="champion-info">
+            <div id="champion-id">
+              <h1 id="champion-name">{championName}</h1>
+              <h2 id="champion-title">{champion.title}</h2>
+              <div id="champion-backstory">
+                <p>{champion.blurb}</p>
+              </div>
+            </div>
+            <div id="champion-basic-info"></div>
+            <div id="champion-navigation">
+              <div id="champion-nav-button"></div>
+            </div>
+            <div className="flex-box">
+              <div className="flex-box-stats">
+                {Object.keys(champion.stats).map((name, value) => {
+                  return (
+                    <div key={name} className="stats">
+                      <p>
+                        {name}: {Object.values(champion.stats)[value]}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
