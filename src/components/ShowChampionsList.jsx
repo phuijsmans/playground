@@ -1,4 +1,3 @@
-import "../css/ShowChampionList.css";
 import { ShowChampionsPortraitList } from "./ShowChampionsPortraitList";
 
 import { useNavigate } from "react-router-dom";

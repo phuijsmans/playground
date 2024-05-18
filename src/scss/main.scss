@@ -1,2 +1,15 @@
+//abstracts
+@import "./abstract/variables";
+
+//base
 @import "./base/base";
-@import "./components/showChampionDetails";
+@import "./base/typography";
+
+//layouts
+
+//pages
+
+//components
+@import "./components/championsDetails/showChampionDetails";
+@import "./components/championList/portraitStyle";
+@import "./components/championList/showChampionList";

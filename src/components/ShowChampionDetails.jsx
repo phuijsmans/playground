@@ -17,7 +17,7 @@ export const ShowChampionDetails = ({ champion }) => {
         </div>
         <div id="wrapper-content">
           <div id="champion-splash-art">
-            <img src={championSplashArt} />{" "}
+            <img src={championSplashArt} />
           </div>
           <div id="champion-info">
             <div id="champion-id">
