@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { ShowChampionDetails } from "../components/ShowChampionDetails";
 
 export const ChampionsDetailPage = ({ championsList }) => {
-  const searchParams = useParams();
+  const championName = useLoaderData();
 
   const getChampion = (championsList) => {
     for (const champion of Object.values(championsList)) {
-      if (champion.id === searchParams.id) {
+      if (champion.id === championName) {
         return champion;
       }
     }

@@ -1,25 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 export const ShowChampionDetails = ({ champion }) => {
   const championName = champion.name;
   const championSplashArt = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`;
-  console.log(champion);
+  // console.log(champion);
+  console.log(useLoaderData());
 
   return (
     <>
       <div id="container-champion-details">
-        <Link id="link-back" to={"../champions"}>
-          Back
-        </Link>
         <div id="background">
           <img id="champion-splash-art-blurred" src={championSplashArt} />
-          <div className="gradient"></div>
+          {/* <div className="gradient"></div> */}
         </div>
         <div id="wrapper-content">
           <div id="champion-splash-art">
             <img src={championSplashArt} />
           </div>
           <div id="champion-info">
+            <Link id="link-back" to={"/champions"}>
+              Back
+            </Link>
             <div id="champion-id">
               <h1 id="champion-name">{championName}</h1>
               <h2 id="champion-title">{champion.title}</h2>

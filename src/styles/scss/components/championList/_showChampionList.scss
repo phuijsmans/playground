@@ -1,11 +1,24 @@
-.flex-container {
+#container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.flex-container > div {
-  margin: 0.2em;
+  flex-direction: column;
+  align-items: center;
+  background-color: $main-color;
+  .center {
+    display: flex;
+    justify-content: center;
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: left;
+      gap: 0.3rem;
+      max-width: 1280px;
+      // max-width: calc((90px + 0.3em) * 13);
+      margin: 2rem;
+    }
+    // .flex-container {
+    //   display: grid;
+    //   grid-template-columns: repeat(3, 1fr);
+    //   gap: 0.3rem;
+    // }
+  }
 }

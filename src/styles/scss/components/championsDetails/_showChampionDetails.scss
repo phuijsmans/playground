@@ -4,65 +4,70 @@ img {
   width: 100%;
 }
 
+h2 {
+  color: $text-color-white;
+}
+
 #link-back {
   position: relative;
+  color: $text-color-white;
 }
 
 #container-champion-details {
+  display: flex;
+  justify-content: center;
   background-color: rgb(12, 11, 19);
   #background {
     position: absolute;
-    height: 80vh;
     width: 100%;
+    // height: 100%;
+    // min-height: 80vh;
+    // min-width: 100%;
     overflow: hidden;
-    max-height: 800px;
+    // max-height: 800px;
+    mask-image: linear-gradient(rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
 
     #champion-splash-art-blurred {
-      position: absolute;
-      filter: blur(8px);
+      position: relative;
+      filter: blur(12px);
       width: 110%;
-      height: 110%;
+      // height: 110%;
       top: -5%;
       left: -5%;
+
       img {
         object-fit: cover;
       }
     }
-    .gradient {
-      position: absolute;
-      height: 50%;
-      width: 100%;
-      left: 0px;
-      bottom: 0px;
-      background: linear-gradient(
-        rgba($background-color, 0),
-        rgba($background-color, 100)
-      );
-    }
   }
 
   #wrapper-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 0 2em;
+    max-width: 1280px;
     #champion-splash-art {
       position: relative;
       width: 100%;
-      max-width: 1335px;
-      margin: 0 auto;
+      padding-top: 2rem;
       mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
     }
 
     #champion-info {
       position: relative;
-      top: 70%;
-      left: 0em;
-      width: 100%;
+      background-color: rgba(0, 0, 0, 0.295);
+      padding: 1.5rem;
       #champion-id {
         #champion-name {
-          color: rgb(158, 125, 65);
+          color: $text-color-white;
         }
         #champion-title {
-          color: rgb(158, 125, 65);
+          color: $text-color-white;
         }
+      }
+      p {
+        color: $text-color-white;
       }
     }
 

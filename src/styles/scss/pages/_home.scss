@@ -1,0 +1,22 @@
+body {
+  color: $text-color-white;
+  background-color: $main-color;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: (6rem 1fr 1fr 6rem);
+  grid-template-rows: (3rem 1fr 1fr);
+  gap: 2rem;
+  header {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    text-align: center;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    grid-column: 2 / span 2;
+    grid-row: 3;
+  }
+}

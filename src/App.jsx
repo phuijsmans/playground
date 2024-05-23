@@ -3,14 +3,18 @@ import { useEffect, useState } from "react";
 import { Link, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ChampionsPage } from "./pages/ChampionsPage";
 import { ChampionsDetailPage } from "./pages/ChampionsDetailPage";
+import { HomePage } from "./pages/HomePage";
 
 function App() {
   const RIOT_API_KEY = "RGAPI-92b8c787-0ddf-440a-b6fc-31aa828b705d";
   // const GET_CHAMPIONS = `https://euw1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=${RIOT_API_KEY}`;
   const URL_ALL_CHAMPIONS =
     "https://ddragon.leagueoflegends.com/cdn/12.6.1/data/en_GB/champion.json";
-  const [allChampions, setAllChampions] = useState();
-  const [freeChampionsRotation, setFreeChampionsRotation] = useState();
+  const [allChampions, setAllChampions] = useState(null);
+  const [freeChampionsRotation, setFreeChampionsRotation] = useState(null);
+  const test = (params) => {
+    return params;
+  };
 
   useEffect(() => {
     const fetchAllChampions = async () => {
@@ -25,23 +29,29 @@ function App() {
       path: "/",
       element: (
         <>
-          <h1>Home page</h1>
-          <Link to="champions">to champions</Link>
+          <HomePage />
         </>
       ),
     },
     {
       path: "champions",
       element: (
-        <div>
-          <Link to="/">Back</Link>
-
-          <ChampionsPage
-            allChampions={allChampions}
-            freeChampionsRotation={freeChampionsRotation}
-          />
-        </div>
+        <>
+          {allChampions ? (
+            <ChampionsPage
+              allChampions={allChampions}
+              freeChampionsRotation={freeChampionsRotation}
+            />
+          ) : (
+            <>
+              <p>Loading...</p>
+            </>
+          )}
+        </>
       ),
+      loader: () => {
+        return allChampions;
+      },
     },
     {
       path: `champions/:id`,
@@ -53,12 +63,14 @@ function App() {
             </>
           ) : (
             <>
-              <p>not loaded?</p>
+              <p>Loading...</p>
             </>
           )}
-          {/* <ChampionsDetailPage championsObjectList={allChampions} /> */}
         </>
       ),
+      loader: ({ params }) => {
+        return test(params.id);
+      },
     },
   ]);
 
